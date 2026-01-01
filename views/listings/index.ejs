@@ -46,7 +46,7 @@
     <p>Boats</p>
   </div>
 
-  <div class="tax-toggle">
+  <div class="tax-toggle d-none d-lg-flex">
     <div class="form-check-reverse form-switch">
       <input
         class="form-check-input"
@@ -54,12 +54,27 @@
         role="switch"
         id="flexSwitchCheckDefault"
       />
-      <label class="form-check-label" for="flexSwitchCheckDefault"
-        >Display total after taxs</label
-      >
+      <label class="form-check-label" for="flexSwitchCheckDefault">
+        Display total after taxes
+      </label>
     </div>
   </div>
 </div>
+
+<div class="tax-toggle-bar d-lg-none">
+  <div class="form-check-reverse form-switch">
+    <input
+      class="form-check-input"
+      type="checkbox"
+      role="switch"
+      id="flexSwitchCheckMobile"
+    />
+    <label class="form-check-label" for="flexSwitchCheckMobile">
+      Display total after taxes
+    </label>
+  </div>
+</div>
+
 <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
   <% for(listing of allListings) { %>
   <a href="/listings/<%= listing._id %> " class="listing-link">
@@ -83,4 +98,5 @@
   </a>
   <% } %>
 </div>
+
 <script src="/js/filter.js"></script>
