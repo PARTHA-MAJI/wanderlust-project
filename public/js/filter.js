@@ -1,11 +1,10 @@
 let taxSwitch = document.getElementById("flexSwitchCheckDefault");
 let taxSwitchMobile = document.getElementById("flexSwitchCheckMobile");
 
-// Function to toggle tax display
-function toggleTax() {
+function toggleTax(isMsgVisible) {
   let taxInfo = document.getElementsByClassName("tax-info");
-  for (info of taxInfo) {
-    if (info.style.display != "inline") {
+  for (let info of taxInfo) {
+    if (isMsgVisible) {
       info.style.display = "inline";
     } else {
       info.style.display = "none";
@@ -13,12 +12,22 @@ function toggleTax() {
   }
 }
 
-// Add event listener to Desktop Switch
 if (taxSwitch) {
-  taxSwitch.addEventListener("click", toggleTax);
+  taxSwitch.addEventListener("click", () => {
+    toggleTax(taxSwitch.checked);
+
+    if (taxSwitchMobile) {
+      taxSwitchMobile.checked = taxSwitch.checked;
+    }
+  });
 }
 
-// Add event listener to Mobile Switch
 if (taxSwitchMobile) {
-  taxSwitchMobile.addEventListener("click", toggleTax);
+  taxSwitchMobile.addEventListener("click", () => {
+    toggleTax(taxSwitchMobile.checked);
+
+    if (taxSwitch) {
+      taxSwitch.checked = taxSwitchMobile.checked;
+    }
+  });
 }

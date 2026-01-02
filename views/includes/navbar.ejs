@@ -1,69 +1,388 @@
 <style>
-  .search-btn {
-    background-color: #fe424d;
-    color: #fff;
-    border-radius: 25px;
-    padding: 0 1rem 0 1rem;
+  /* 1. LOGO AREA */
+  .brand-text {
+    color: #ff385c;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-left: 5px;
   }
-  .search-btn:hover {
-    background-color: #fe424d;
-    color: #fff;
+  .fa-compass {
+    color: #ff385c;
+    font-size: 2rem;
   }
-  .search-btn i {
-    display: inline;
-    margin-right: 0.3rem;
+
+  /* 2. CENTER SEARCH BAR */
+  .search-bar-container {
+    border: 1px solid #ddd;
+    border-radius: 40px;
+    padding: 8px 8px 8px 24px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+    background: white;
+    max-width: 450px;
+    width: 100%;
   }
-  .search-inp {
-    border-radius: 25px;
-    padding: 0.5rem 3rem 0.5rem 3rem;
+  .search-bar-container:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+  }
+
+  .search-segment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 15px;
+  }
+  .search-segment label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    margin-bottom: 2px;
+    color: #222;
+  }
+  .search-input-field {
+    border: none;
+    outline: none;
     font-size: 0.9rem;
+    color: #717171;
+    background: transparent;
+    padding: 0;
+    width: 100%;
+    text-overflow: ellipsis;
+  }
+  .search-input-field::placeholder {
+    color: #717171;
+  }
+
+  .divider {
+    width: 1px;
+    height: 24px;
+    background-color: #ddd;
+    margin: 0 10px;
+  }
+
+  /* Pink Search Button */
+  .search-circle-btn {
+    background-color: #ff385c;
+    color: white;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    transition: transform 0.2s;
+  }
+  .search-circle-btn i {
+    font-size: 0.9rem;
+  }
+
+  /* 3. RIGHT MENU AREA */
+  .host-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #222;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    transition: background 0.2s;
+  }
+  .host-link:hover {
+    background-color: #f7f7f7;
+  }
+
+  .globe-btn {
+    background: transparent;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    color: #222;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+  .globe-btn:hover {
+    background-color: #f7f7f7;
+  }
+
+  /* Profile Pill */
+  .profile-pill {
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    padding: 5px 5px 5px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+    position: relative;
+    background: white;
+  }
+  .profile-pill:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+  }
+
+  .user-avatar-placeholder {
+    background-color: #717171;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+  }
+
+  /* Dropdown Fixes */
+  .profile-dropdown-menu {
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
+    border: 1px solid #ddd;
+    margin-top: 10px;
+    padding: 8px 0;
+    min-width: 240px;
+  }
+  .dropdown-item {
+    padding: 10px 16px;
+    font-weight: 400;
+    font-size: 0.9rem;
+  }
+  .dropdown-item:hover {
+    background-color: #f7f7f7;
+  }
+  .bold-item {
+    font-weight: 600;
+  }
+
+  /* MOBILE STYLES */
+
+  .mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4.5rem;
+    border-bottom: 1px solid #eaeaea;
+    position: relative;
+  }
+  .mobile-logo {
+    position: absolute;
+    left: 1rem;
+    color: #ff385c;
+    font-size: 2rem;
+  }
+  .mobile-search-form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    padding: 5px 5px 5px 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  }
+  .mobile-search-input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .mobile-search-submit {
+    background-color: #ff385c;
+    color: white;
+    border: none;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+  }
+  .bottom-nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #717171;
+    text-decoration: none;
+    font-size: 0.75rem;
+    border: none;
+    background: none;
+  }
+  .bottom-nav-link.active {
+    color: #ff385c;
+    font-weight: 600;
   }
 </style>
 
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/listings"
-      ><i class="fa-regular fa-compass"></i
-    ></a>
+<nav
+  class="navbar navbar-expand-md bg-white border-bottom sticky-top d-none d-md-flex py-3"
+>
+  <div
+    class="container-fluid d-flex justify-content-between align-items-center"
+  >
+    <a class="navbar-brand d-flex align-items-center" href="/listings">
+      <i class="fa-regular fa-compass"></i>
+      <span class="brand-text">Explore</span>
+    </a>
 
-    <a class="nav-link d-md-none" href="/listings"><b>Explore</b></a>
+    <form action="/listings" method="GET" class="search-bar-container">
+      <div class="search-segment" style="flex: 1.2">
+        <label>Where</label>
+        <input
+          type="text"
+          name="q"
+          class="search-input-field"
+          placeholder="Search destinations"
+        />
+      </div>
+      <div class="divider"></div>
 
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNavAltMarkup"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <div class="search-segment" style="flex: 0.8">
+        <label>When</label>
+        <div class="search-input-field">Add dates</div>
+      </div>
+      <div class="divider"></div>
 
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link d-none d-md-block" href="/listings">Explore</a>
+      <div class="search-segment" style="flex: 0.8">
+        <label>Who</label>
+        <div class="search-input-field">Add guests</div>
       </div>
 
-      <div class="navbar-nav ms-auto">
-        <form class="d-flex" role="search">
-          <input
-            class="form-control me-2 search-inp"
-            type="search"
-            placeholder="Search destinations"
-          />
-          <button class="btn search-btn" type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>Search
-          </button>
-        </form>
-      </div>
+      <button type="submit" class="search-circle-btn">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </form>
 
-      <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="/listings/new">Become a host</a>
-        <% if(!currUser) { %>
-        <a class="nav-link" href="/signup"><b>Sign up</b></a>
-        <a class="nav-link" href="/login"><b>Log in</b></a>
-        <% } %> <% if(currUser) { %>
-        <a class="nav-link" href="/logout"><b>Log out</b></a>
-        <% } %>
+    <div class="d-flex align-items-center">
+      <a href="/listings/new" class="host-link">Become a host</a>
+      <button class="globe-btn"><i class="fa-solid fa-globe"></i></button>
+
+      <div class="dropdown">
+        <div
+          class="profile-pill"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <i class="fa-solid fa-bars text-dark"></i>
+          <div class="user-avatar-placeholder">
+            <% if(currUser && currUser.username) { %> <%=
+            currUser.username[0].toUpperCase() %> <% } else { %>
+            <i class="fa-solid fa-user" style="font-size: 0.7rem"></i>
+            <% } %>
+          </div>
+        </div>
+
+        <ul class="dropdown-menu dropdown-menu-end profile-dropdown-menu">
+          <% if(!currUser) { %>
+          <li><a class="dropdown-item bold-item" href="/signup">Sign up</a></li>
+          <li><a class="dropdown-item" href="/login">Log in</a></li>
+          <li><hr class="dropdown-divider" /></li>
+          <li>
+            <a class="dropdown-item" href="/listings/new">Airbnb your home</a>
+          </li>
+          <li><a class="dropdown-item" href="#">Help Centre</a></li>
+          <% } else { %>
+          <li>
+            <h6 class="dropdown-header">Welcome, <%= currUser.username %></h6>
+          </li>
+          <li>
+            <a class="dropdown-item bold-item" href="/listings">My Trips</a>
+          </li>
+          <li>
+            <a class="dropdown-item bold-item" href="/listings">Wishlists</a>
+          </li>
+          <li><hr class="dropdown-divider" /></li>
+          <li>
+            <a class="dropdown-item" href="/listings/new">Manage listings</a>
+          </li>
+          <li><a class="dropdown-item" href="/logout">Log out</a></li>
+          <% } %>
+        </ul>
       </div>
     </div>
   </div>
 </nav>
+
+<div class="mobile-header d-md-none sticky-top bg-white">
+  <% if(typeof showSearch !== 'undefined' && showSearch) { %>
+  <form
+    action="/listings"
+    method="GET"
+    class="mobile-search-form"
+    style="margin: 0 1rem"
+  >
+    <input
+      type="search"
+      name="q"
+      class="mobile-search-input"
+      placeholder="Start your search"
+      autofocus
+    />
+    <button type="submit" class="mobile-search-submit">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+  </form>
+  <% } else { %>
+  <a href="/listings" class="mobile-logo"
+    ><i class="fa-regular fa-compass"></i
+  ></a>
+  <span style="font-weight: 600; font-size: 1.1rem; color: #222">Explore</span>
+  <% } %>
+</div>
+
+<nav
+  class="navbar fixed-bottom navbar-light bg-white border-top d-md-none pb-3 pt-2"
+>
+  <div class="container-fluid d-flex justify-content-around">
+    <a href="/listings?search=true" class="bottom-nav-link active">
+      <i class="fa-solid fa-magnifying-glass"></i><span>Explore</span>
+    </a>
+    <a href="/listings" class="bottom-nav-link"
+      ><i class="fa-regular fa-heart"></i><span>Wishlists</span></a
+    >
+    <% if(!currUser) { %>
+    <a href="/login" class="bottom-nav-link"
+      ><i class="fa-regular fa-circle-user"></i><span>Log in</span></a
+    >
+    <% } else { %>
+    <button
+      class="bottom-nav-link"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#mobileProfileMenu"
+    >
+      <i class="fa-regular fa-user"></i><span>Profile</span>
+    </button>
+    <% } %>
+  </div>
+</nav>
+
+<% if(currUser) { %>
+<div
+  class="offcanvas offcanvas-bottom"
+  tabindex="-1"
+  id="mobileProfileMenu"
+  style="height: auto; border-radius: 20px 20px 0 0"
+>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title fw-bold">Profile</h5>
+    <button class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body pt-0 pb-4">
+    <div class="mb-4">
+      <p class="text-muted mb-0">Welcome back,</p>
+      <h4>@<%= currUser.username %></h4>
+    </div>
+    <a href="/listings/new" class="profile-menu-link"
+      ><i class="fa-solid fa-house-chimney"></i> Become a Host</a
+    >
+    <a href="/logout" class="profile-menu-link text-danger"
+      ><i class="fa-solid fa-arrow-right-from-bracket"></i> Log out</a
+    >
+  </div>
+</div>
+<% } %>

@@ -11,23 +11,219 @@ body {
   flex: 1;
 }
 
-/* 2. NAVBAR */
+/* 2. NAVBAR & SEARCH STYLES */
 
 .navbar {
-  height: 5rem;
   background-color: #ffffff;
+  height: 5rem;
 }
 
+.brand-text {
+  color: #ff385c;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-left: 5px;
+}
 .fa-compass {
-  color: #fe424d;
+  color: #ff385c;
   font-size: 2rem;
 }
-
 .nav-link {
   color: #222222 !important;
 }
 
-/* 3. FOOTER (RESPONSIVE GRID) */
+/* Search Bar */
+.search-bar-container {
+  border: 1px solid #ddd;
+  border-radius: 40px;
+  padding: 8px 8px 8px 24px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+  background: white;
+  max-width: 400px;
+  width: 100%;
+}
+.search-bar-container:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+}
+
+.search-segment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 15px;
+}
+.search-segment label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  margin-bottom: 2px;
+  color: #222;
+}
+.search-input-field {
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  color: #717171;
+  background: transparent;
+  padding: 0;
+  width: 100%;
+}
+
+.divider {
+  width: 1px;
+  height: 24px;
+  background-color: #ddd;
+  margin: 0 10px;
+}
+
+.search-circle-btn {
+  background-color: #ff385c;
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+}
+
+/* Right Menu */
+.host-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #222;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+}
+.host-link:hover {
+  background-color: #f7f7f7;
+}
+
+.globe-btn {
+  background: transparent;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  color: #222;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.globe-btn:hover {
+  background-color: #f7f7f7;
+}
+
+.profile-pill {
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  padding: 5px 5px 5px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  background: white;
+}
+.profile-pill:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+}
+
+.user-avatar-placeholder {
+  background-color: #717171;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+.profile-dropdown-menu {
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
+  border: 1px solid #ddd;
+  margin-top: 10px;
+  padding: 8px 0;
+  min-width: 240px;
+}
+.dropdown-item {
+  padding: 10px 16px;
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+.dropdown-item:hover {
+  background-color: #f7f7f7;
+}
+.bold-item {
+  font-weight: 600;
+}
+
+/* 3. FILTERS */
+
+#filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.filter {
+  text-align: center;
+  margin-right: 2rem;
+  margin-top: 0.5rem;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.filter:hover {
+  opacity: 1;
+  border-bottom: 2px solid #ddd;
+}
+.filter p {
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+/* 4. TAX TOGGLE BOX */
+
+.tax-toggle {
+  border: 1px solid #e0e0e0;
+  border-radius: 30px;
+  height: 3.25rem;
+  padding: 0 16px;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  min-width: 250px;
+  width: fit-content;
+}
+
+.tax-toggle:hover {
+  border-color: #222;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.tax-toggle label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #222;
+  cursor: pointer;
+  white-space: nowrap;
+  margin-right: 12px;
+}
+
+/* 5. FOOTER */
 
 .f-info {
   background-color: #ebebeb;
@@ -36,115 +232,73 @@ body {
   border-top: 1px solid #ddd;
   margin-top: auto;
 }
-
-.f-info-brand {
-  font-size: 0.9rem;
-  font-weight: 400;
-  color: #555;
-}
-
-.f-info-links a {
-  text-decoration: none;
-  color: #222222;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.f-info-links a:hover {
-  text-decoration: underline;
-  color: #fe424d;
-}
-
+.f-info-links a,
 .f-info-socials a {
-  color: #222222;
-  font-size: 1.2rem;
-  margin-left: 1rem;
-  transition: color 0.3s ease;
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+  transition: color 0.3s;
 }
-
+.f-info-links a:hover,
 .f-info-socials a:hover {
   color: #fe424d;
+}
+.f-info-socials a {
+  font-size: 1.2rem;
+  margin-left: 1rem;
 }
 
 @media (max-width: 768px) {
   .f-info-socials a {
     margin: 0 0.5rem;
   }
+  .f-info {
+    padding-bottom: 6rem;
+  }
 }
 
-/* 4. CARDS & LISTINGS */
+/* 6. CARDS & UI ELEMENTS */
 
 .card-listing {
   border: none !important;
   margin-bottom: 1rem;
 }
-
 .card-img-top {
   border-radius: 1rem !important;
   width: 100%;
   object-fit: cover !important;
 }
-
 .card-body {
   padding: 0 !important;
 }
-
 .card-text p {
   font-weight: 400 !important;
 }
-
 .listing-link {
   text-decoration: none;
 }
-
+.hover-underline:hover {
+  text-decoration: underline !important;
+}
 .card-img-overlay {
   opacity: 0;
 }
-
 .card-img-overlay:hover {
   opacity: 0.2;
   background-color: white;
 }
-
-/* 5. BUTTONS & UI ELEMENTS */
 
 .add-btn,
 .edit-btn {
   background-color: #fe424d !important;
   border: none !important;
 }
-
 .show-img {
   height: 30vh;
 }
-
 .btns {
   display: flex;
 }
-
-.show-cards {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-/* 6. TAX TOGGLE BAR (DESKTOP DEFAULT) */
-
-.tax-toggle-bar {
-  border: 1px solid black;
-  border-radius: 1rem;
-  height: 3.2rem;
-  padding: 1rem;
-  margin: 1rem 0 2rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* 7. MAP CONFIGURATION */
-
 #map {
   height: 400px;
   width: 100%;
@@ -152,73 +306,141 @@ body {
   margin-bottom: 2rem;
 }
 
-/* 8. MEDIA QUERIES (MOBILE FIXES) */
+/* 7. MEDIA QUERIES (TABLET & MOBILE) */
 
-/* --- TABLETS & SMALL LAPTOPS (Max-width: 1024px) --- */
 @media (max-width: 1024px) {
   #map {
     width: 100% !important;
     height: 300px;
   }
-
   #filter {
     display: flex;
     flex-wrap: nowrap !important;
     overflow-x: auto;
     padding: 1rem 0 0 0;
   }
-
   #filter::-webkit-scrollbar {
     display: none;
   }
-
-  #filter {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
   .filter {
     min-width: 80px;
     margin-right: 1.5rem;
   }
 }
 
-/* --- SMARTPHONES (Max-width: 768px) --- */
 @media (max-width: 767px) {
+  body {
+    padding-bottom: 80px;
+  }
+
+  /* Filters: Tight & Scrollable */
+  #filter {
+    display: flex;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    padding: 10px 0 5px 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 5px !important;
+    gap: 0;
+  }
+  #filter::-webkit-scrollbar {
+    display: none;
+  }
+  .filter {
+    min-width: 70px;
+    margin-right: 10px;
+    opacity: 0.6;
+  }
+
+  /* Mobile Tax Toggle */
+  .d-md-none .tax-toggle {
+    margin: 5px 15px 10px auto !important;
+  }
+
+  /* Mobile Header */
+  .mobile-header {
+    height: 4.5rem;
+    border-bottom: 1px solid #eaeaea;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mobile-logo {
+    position: absolute;
+    left: 1rem;
+    color: #ff385c;
+    font-size: 2rem;
+  }
+  .mobile-search-form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    padding: 5px 5px 5px 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  }
+  .mobile-search-input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .mobile-search-submit {
+    background-color: #ff385c;
+    color: white;
+    border: none;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+  }
+
+  /* Bottom Nav */
+  .bottom-nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #717171;
+    text-decoration: none;
+    font-size: 0.75rem;
+    background: none;
+    border: none;
+  }
+  .bottom-nav-link.active {
+    color: #ff385c;
+    font-weight: 600;
+  }
+
+  /* General */
   .btns {
     display: flex !important;
     justify-content: space-between !important;
     width: 100% !important;
-    padding: 0 1rem;
+    padding: 0 5px;
   }
-
-  /* Reset margins for the Edit Button */
   .btns .edit-btn {
     margin: 0 !important;
     width: 48% !important;
   }
-
-  /* Reset margins for the Delete Form & Button */
   .btns form {
     width: 48% !important;
     margin: 0 !important;
   }
-
   .btns form button {
     margin: 0 !important;
     width: 100% !important;
   }
-
-  .tax-toggle-bar {
-    border: none !important;
-    width: auto !important;
-    padding: 0;
-    margin-top: 0.5rem !important;
-    margin-right: 0 !important;
-    margin-left: auto !important;
-    justify-content: flex-end;
+  .alert {
+    width: 95% !important;
+    margin: 1rem auto !important;
+    left: 0 !important;
   }
-
   .col-8.offset-2,
   .col-6.offset-3,
   .col-8.offset-3,
@@ -226,53 +448,66 @@ body {
   .col-md-8 {
     width: 100% !important;
     margin-left: 0 !important;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 0 15px;
   }
-
-  /* --- CARDS & IMAGES --- */
-  .card-listing {
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-  }
-
   .card-img-top {
     height: 18rem !important;
   }
-
   .show-img {
     height: 35vh;
   }
-
-  /* --- REVIEWS --- */
   .card.col-5.ms-3 {
     width: 100% !important;
     margin-left: 0 !important;
     margin-bottom: 1rem;
   }
+}
 
-  /* --- NAVBAR --- */
-  .navbar-nav {
-    align-items: center;
-  }
+/* 8. BLACK TOGGLE SWITCH */
 
-  .navbar-collapse {
-    background-color: #fff;
-    padding-bottom: 1rem;
-    z-index: 1000;
-  }
+.form-check-input:checked {
+  background-color: #222 !important;
+  border-color: #222 !important;
+}
+.form-check-input:focus {
+  border-color: rgba(0, 0, 0, 0.2) !important;
+  box-shadow: none !important;
+}
+.form-check-input {
+  cursor: pointer;
+  height: 1.5rem;
+  width: 2.5rem;
+  margin: 0 !important;
+  float: none !important;
+}
 
-  .search-inp,
-  .search-btn {
-    width: 100% !important;
-    margin-bottom: 10px;
-    border-radius: 25px;
-  }
+/* 9. MOBILE PROFILE MENU */
 
-  /* --- ALERTS --- */
-  .alert {
-    width: 95% !important;
-    margin: 1rem auto !important;
-    left: 0 !important;
-  }
+.profile-menu-link {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  font-size: 1rem;
+  color: #222 !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s;
+}
+
+.profile-menu-link:hover {
+  background-color: #f7f7f7;
+}
+
+.profile-menu-link i {
+  width: 35px;
+  font-size: 1.2rem;
+  color: #717171;
+}
+
+.profile-menu-link.text-danger {
+  color: #ff385c !important;
+  border-bottom: none;
+}
+.profile-menu-link.text-danger i {
+  color: #ff385c !important;
 }

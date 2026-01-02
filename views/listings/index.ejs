@@ -1,6 +1,16 @@
-<% layout("/layout/boilerplate.ejs") %> <%= success %>
+<% layout("/layout/boilerplate.ejs") %>
 
-<div id="filter">
+<style>
+  #filter::-webkit-scrollbar {
+    display: none;
+  }
+  #filter {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+
+<div id="filter" style="display: flex; flex-wrap: wrap; align-items: center">
   <div class="filter">
     <div><i class="fa-solid fa-fire"></i></div>
     <p>Trending</p>
@@ -46,39 +56,53 @@
     <p>Boats</p>
   </div>
 
-  <div class="tax-toggle d-none d-lg-flex">
-    <div class="form-check-reverse form-switch">
-      <input
-        class="form-check-input"
-        type="checkbox"
-        role="switch"
-        id="flexSwitchCheckDefault"
-      />
+  <div class="d-none d-md-block ms-auto">
+    <div class="tax-toggle">
       <label class="form-check-label" for="flexSwitchCheckDefault">
         Display total after taxes
       </label>
+
+      <div
+        class="form-check form-switch p-0 m-0"
+        style="min-height: auto; display: flex"
+      >
+        <input
+          class="form-check-input"
+          type="checkbox"
+          role="switch"
+          id="flexSwitchCheckDefault"
+        />
+      </div>
     </div>
   </div>
 </div>
 
-<div class="tax-toggle-bar d-lg-none">
-  <div class="form-check-reverse form-switch">
-    <input
-      class="form-check-input"
-      type="checkbox"
-      role="switch"
-      id="flexSwitchCheckMobile"
-    />
-    <label class="form-check-label" for="flexSwitchCheckMobile">
+<div
+  class="d-md-none"
+  style="display: flex; justify-content: flex-end; margin: 10px 15px 20px 0"
+>
+  <div class="tax-toggle" style="margin: 0; border: 1px solid #ccc">
+    <label for="flexSwitchCheckMobile" style="margin-right: 10px">
       Display total after taxes
     </label>
+    <div
+      class="form-check form-switch p-0 m-0"
+      style="min-height: auto; display: flex"
+    >
+      <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="flexSwitchCheckMobile"
+      />
+    </div>
   </div>
 </div>
 
 <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
-  <% for(listing of allListings) { %>
-  <a href="/listings/<%= listing._id %> " class="listing-link">
-    <div class="card card-listing">
+  <% for(let listing of allListings) { %>
+  <div class="card card-listing">
+    <a href="/listings/<%= listing._id %>" class="listing-link">
       <img
         src="<%= listing.image.url %>"
         class="card-img-top"
@@ -86,16 +110,41 @@
         style="height: 20rem"
       />
       <div class="card-img-overlay"></div>
-      <div class="card-body">
-        <p class="card-text">
+    </a>
+
+    <div class="card-body">
+      <p class="card-text">
+        <a
+          href="/listings/<%= listing._id %>"
+          class="text-decoration-none text-dark"
+        >
           <b><%= listing.title %></b>
-          <br />
-          &#8377;<%= listing.price.toLocaleString("en-IN") %>
-          <i class="tax-info">&nbsp; +18% GST</i>
-        </p>
-      </div>
+        </a>
+        <br />
+
+        <a
+          href="/listings?q=<%= listing.location %>"
+          class="text-decoration-none text-secondary hover-underline"
+          style="font-size: 0.9rem"
+        >
+          <%= listing.location %> </a
+        >,
+        <a
+          href="/listings?q=<%= listing.country %>"
+          class="text-decoration-none text-secondary hover-underline"
+          style="font-size: 0.9rem"
+        >
+          <%= listing.country %>
+        </a>
+
+        <br />
+        <span class="price-text">
+          &#8377;<%= listing.price.toLocaleString("en-IN") %> / night
+        </span>
+        <i class="tax-info" style="display: none">&nbsp; +18% GST</i>
+      </p>
     </div>
-  </a>
+  </div>
   <% } %>
 </div>
 
