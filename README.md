@@ -38,5 +38,5 @@ Follow these instructions to set up the project locally on your machine.
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/PARTHA-MAJI/wanderlust-project.git](https://github.com/PARTHA-MAJI/wanderlust-project.git)
+   git clone https://github.com/PARTHA-MAJI/wanderlust-project.git
    ```
